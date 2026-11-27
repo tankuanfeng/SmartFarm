@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f2">
+  <meta name="description" content="禾智云智慧农场，以鸡舍环境监测与农作物产量预测，帮助农场管理更高效。">
+  <title>禾智云 · 智慧农场管理平台</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="主导航">
+      <a class="brand" href="{{ url_for('home') }}" aria-label="禾智云首页">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <path d="M32.7 7.5C20.8 7.4 10.1 11.6 8.6 21.1c-.7 4.5 2.2 7.9 6.4 7.9 9.5 0 14.8-11.4 17.7-21.5Z" fill="currentColor"/>
+            <path d="M8.2 33c3.5-8.5 9.3-13.7 17.3-17.5" stroke="#F7F8F2" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-name">禾智云<span>SMART FARM</span></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="primary-menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-menu" id="primary-menu">
+        <a href="#solutions">解决方案</a>
+        <a href="#features">产品优势</a>
+        <a href="#about">关于我们</a>
+        <div class="nav-actions">
+          <a class="nav-login" href="{{ url_for('login') }}">登录</a>
+          <a class="button button-small" href="{{ url_for('register') }}">免费注册 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="产品介绍">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> 让每一份耕耘，都更有数</div>
+          <div class="hero-carousel" aria-live="polite">
+            <article class="hero-slide is-active" data-slide="0">
+              <h1>让农业更智慧<br><span>让好收成更有把握</span></h1>
+              <p>从鸡舍环境到田间长势，用数据连接每一处农场现场，让日常管理更轻松，生产决策更有依据。</p>
+              <a class="button button-primary" href="#solutions">探索智慧方案 <span aria-hidden="true">→</span></a>
+            </article>
+            <article class="hero-slide" data-slide="1" aria-hidden="true">
+              <h1>看得见的生长<br><span>算得出的好收成</span></h1>
+              <p>汇集环境与种植数据，帮助你及时掌握作物生长变化，为产量规划提供清晰、可靠的参考。</p>
+              <a class="button button-primary" href="#features">了解产品优势 <span aria-hidden="true">→</span></a>
+            </article>
+          </div>
+          <div class="carousel-controls" aria-label="首页轮播控制">
+            <button class="carousel-arrow carousel-prev" type="button" aria-label="上一张">←</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot is-active" type="button" aria-label="第 1 张" aria-pressed="true" data-go-to="0"></button>
+              <button class="carousel-dot" type="button" aria-label="第 2 张" aria-pressed="false" data-go-to="1"></button>
+            </div>
+            <button class="carousel-arrow carousel-next" type="button" aria-label="下一张">→</button>
+            <span class="carousel-count"><strong class="current-slide">01</strong> / 02</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="农场与数据监测示意图">
+          <div class="visual-glow"></div>
+          <div class="sun-disc"></div>
+          <div class="farm-scene">
+            <svg class="farm-art" viewBox="0 0 660 500" role="img" aria-labelledby="farm-art-title">
+              <title id="farm-art-title">绿色农田、鸡舍与小鸡的插画</title>
+              <path d="M0 278c111-75 201-82 312-37 107 44 221 28 348-51v310H0V278Z" fill="#BCD19B"/>
+              <path d="M0 335c132-66 233-50 351-7 106 39 212 26 309-29v201H0V335Z" fill="#8EAD6A"/>
+              <path d="M0 400c138-48 233-23 348 13 107 33 205 17 312-20v107H0V400Z" fill="#62834C"/>
+              <path d="M25 500c75-100 139-153 237-192M113 500c59-82 113-128 200-164M211 500c37-54 76-92 137-122M660 337c-100 50-173 75-276 83M660 392c-86 42-144 60-219 68" stroke="#D8E5B8" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+              <path d="m370 266 90-73 91 73v99H370v-99Z" fill="#F6F0DF"/>
+              <path d="m352 266 108-91 109 91h-32l-77-64-77 64h-31Z" fill="#C77C4C"/>
+              <path d="M395 280h131v85H395v-85Z" fill="#E5D8B8"/>
+              <path d="M446 299h37v66h-37v-66Z" fill="#84634D"/>
+              <path d="M413 294h18v21h-18v-21Zm77 0h18v21h-18v-21Z" fill="#A8C4B1"/>
+              <path d="M420 294v21m-7-10h18m59-11v21m-7-10h18" stroke="#F8F5E9" stroke-width="2"/>
+              <g transform="translate(118 254)">
+                <path d="M9 49c2-25 20-40 44-39 25 1 43 20 41 45-2 18-15 28-43 27C24 82 7 70 9 49Z" fill="#F5E6BE"/>
+                <path d="M52 13c4-13 13-21 25-20-4 9-12 15-24 18" fill="#66834A"/>
+                <circle cx="71" cy="33" r="3" fill="#42513A"/>
+                <path d="m91 42 17 7-17 7" fill="#D98D56"/>
+                <path d="M33 78v13m34-13v13" stroke="#C77C4C" stroke-width="4" stroke-linecap="round"/>
+                <path d="M20 53c7-8 15-11 25-8" stroke="#E3D09F" stroke-width="4" stroke-linecap="round"/>
+              </g>
+              <g fill="#F5E6BE">
+                <ellipse cx="92" cy="371" rx="19" ry="15"/>
+                <circle cx="106" cy="360" r="10"/>
+                <ellipse cx="153" cy="393" rx="17" ry="13"/>
+                <circle cx="166" cy="384" r="9"/>
+              </g>
+              <g fill="#C77C4C">
+                <path d="m113 360 10 4-10 4Z"/>
+                <path d="m173 384 9 4-9 4Z"/>
+              </g>
+              <g fill="#F4F0D8" opacity=".9">
+                <path d="M519 108c0-15 12-27 27-27 12 0 22 8 26 19 2-1 5-2 8-2 14 0 25 11 25 25s-11 25-25 25h-59c-12 0-22-9-22-20 0-9 8-18 20-20Z"/>
+                <path d="M61 139c0-10 8-18 18-18 8 0 15 5 17 12 2-1 4-1 6-1 9 0 17 7 17 16s-8 17-17 17H74c-8 0-14-6-14-13 0-6 4-11 11-13Z"/>
+              </g>
+              <path d="M291 252c6-11 15-17 27-18m-23 38c10-8 20-10 31-8m-39 54c7-10 16-15 28-16" stroke="#698B52" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <div class="data-card data-card-live">
+            <span class="live-indicator"></span>
+            <div><small>鸡舍环境</small><strong>状态良好</strong></div>
+            <span class="card-icon" aria-hidden="true">⌁</span>
+          </div>
+          <div class="data-card data-card-temp">
+            <span class="data-icon temp-icon" aria-hidden="true">☼</span>
+            <div><small>舍内温度</small><strong>24.6°<em>C</em></strong></div>
+            <span class="mini-chart" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+          <div class="data-card data-card-yield">
+            <span class="data-icon yield-icon" aria-hidden="true">↗</span>
+            <div><small>本季预计产量</small><strong>+12.8<em>%</em></strong></div>
+            <span class="yield-caption">较上季</span>
+          </div>
+          <div class="visual-caption"><span class="caption-line"></span> 田间与鸡舍，尽在掌握</div>
+        </div>
+      </div>
+      <a class="scroll-hint" href="#solutions"><span></span> 向下探索</a>
+    </section>
+
+    <section class="trust-strip" aria-label="平台特点">
+      <div class="trust-item"><strong>24<span>/7</span></strong><span>全天候环境感知</span></div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><strong>一<span>站式</span></strong><span>养殖种植统一管理</span></div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><strong>数据<span>驱动</span></strong><span>让每个决策更有依据</span></div>
+      <div class="trust-note">为新一代农场而生 <span aria-hidden="true">✳</span></div>
+    </section>
+
+    <section class="section solutions-section" id="solutions">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> 一座农场，两种智慧</div>
+          <h2>把复杂的生产管理<br>变得<span class="text-green">简单一点</span></h2>
+        </div>
+        <p>从鸡舍里的温湿度，到田间的作物长势，禾智云把关键生产信息汇聚一处，帮助你及时了解农场正在发生什么。</p>
+      </div>
+
+      <div class="solution-grid">
+        <article class="solution-card coop-card">
+          <div class="solution-card-top">
+            <span class="solution-number">01 / 养殖管理</span>
+            <span class="round-arrow" aria-hidden="true">↗</span>
+          </div>
+          <div class="solution-copy">
+            <div class="solution-icon coop-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M10 22.5 24 11l14 11.5v16H10v-16Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M19 38V27h10v11M16 24h.1M32 24h.1" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M24 7v4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>鸡舍环境监测</h3>
+            <p>温度、湿度、空气质量一目了然。及时掌握鸡舍环境变化，让养殖管理更从容。</p>
+            <div class="feature-tags"><span>温湿度监测</span><span>空气质量</span><span>异常提醒</span></div>
+          </div>
+          <div class="coop-visual" aria-hidden="true">
+            <div class="coop-mini-window">
+              <div class="mini-window-head"><span></span><span></span><span></span><small>鸡舍 · A 区</small></div>
+              <div class="coop-metrics">
+                <div><small>温度</small><strong>24.6°</strong><span class="metric-ok">● 正常</span></div>
+                <div><small>湿度</small><strong>62<em>%</em></strong><span class="metric-ok">● 正常</span></div>
+                <div><small>空气质量</small><strong>优</strong><span class="metric-ok">● 良好</span></div>
+              </div>
+              <div class="coop-status"><span>环境状态</span><strong><i></i> 一切正常</strong></div>
+            </div>
+            <span class="coop-leaf leaf-one"></span><span class="coop-leaf leaf-two"></span>
+          </div>
+        </article>
+
+        <article class="solution-card crop-card">
+          <div class="solution-card-top">
+            <span class="solution-number">02 / 种植管理</span>
+            <span class="round-arrow" aria-hidden="true">↗</span>
+          </div>
+          <div class="solution-copy">
+            <div class="solution-icon crop-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M24 39V19m0 12c-8 0-13-5-13-12 8 0 13 4 13 12Zm0-7c0-9 5-15 14-16 0 9-5 15-14 16Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>作物产量预测</h3>
+            <p>结合农场生产数据与作物生长情况，生成产量趋势参考，让种植规划更有方向。</p>
+            <div class="feature-tags"><span>生长趋势</span><span>产量估算</span><span>种植规划</span></div>
+          </div>
+          <div class="yield-visual" aria-hidden="true">
+            <div class="yield-chart-head"><span>本季产量趋势</span><span class="chart-period">本季⌄</span></div>
+            <div class="yield-chart-value">预计产量 <strong>8.6 <small>吨</small></strong><span>↗ 12.8%</span></div>
+            <div class="chart-area">
+              <div class="chart-y-labels"><span>10t</span><span>5t</span><span>0</span></div>
+              <svg viewBox="0 0 340 90" preserveAspectRatio="none">
+                <defs><linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#70975A" stop-opacity=".25"/><stop offset="1" stop-color="#70975A" stop-opacity="0"/></linearGradient></defs>
+                <path d="M0 75C32 69 37 58 67 63s42-25 72-20 41 11 67-8 43-13 62-22 39-2 72-11v88H0V75Z" fill="url(#chartFill)"/>
+                <path d="M0 75C32 69 37 58 67 63s42-25 72-20 41 11 67-8 43-13 62-22 39-2 72-11" fill="none" stroke="#6D9255" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="268" cy="13" r="5" fill="#fff" stroke="#6D9255" stroke-width="3"/>
+              </svg>
+            </div>
+            <div class="chart-months"><span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="features-section" id="features">
+      <div class="features-inner">
+        <div class="feature-intro">
+          <div class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> 好用，才是真智慧</div>
+          <h2>让科技走进农场<br>而不是增加负担</h2>
+          <p>清晰、直观、容易上手。从打开平台的第一眼起，就能找到你关心的信息。</p>
+          <a class="text-link" href="{{ url_for('register') }}">开启智慧农场之旅 <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="feature-list">
+          <article class="feature-row">
+            <span class="feature-index">01</span>
+            <span class="feature-row-icon" aria-hidden="true">◉</span>
+            <div><h3>关键数据，一屏掌握</h3><p>把鸡舍与种植信息汇总呈现，少切换，多了解。</p></div>
+            <span class="feature-row-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="feature-row">
+            <span class="feature-index">02</span>
+            <span class="feature-row-icon" aria-hidden="true">⌁</span>
+            <div><h3>环境变化，及时感知</h3><p>持续关注生产环境，让异常情况更早进入视线。</p></div>
+            <span class="feature-row-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="feature-row">
+            <span class="feature-index">03</span>
+            <span class="feature-row-icon" aria-hidden="true">⌁</span>
+            <div><h3>趋势参考，规划有据</h3><p>用数据辅助产量预估与种植安排，管理更有方向。</p></div>
+            <span class="feature-row-arrow" aria-hidden="true">↗</span>
+          </article>
+        </div>
+      </div>
+      <div class="features-decoration" aria-hidden="true">GROW<br>WITH<br>CARE</div>
+    </section>
+
+    <section class="cta-section" id="about">
+      <div class="cta-orbit orbit-one"></div><div class="cta-orbit orbit-two"></div>
+      <div class="cta-content">
+        <span class="cta-kicker">GROW SMARTER, TOGETHER</span>
+        <h2>好农场，值得更好的管理方式。</h2>
+        <p>从今天开始，了解你的农场，规划更好的明天。</p>
+        <a class="button button-cream" href="{{ url_for('register') }}">免费注册 <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="cta-sprout" aria-hidden="true">
+        <svg viewBox="0 0 180 190" fill="none"><path d="M90 179V82" stroke="#DCE8C7" stroke-width="5" stroke-linecap="round"/><path d="M89 116C51 116 31 94 31 58c36 0 58 20 58 58Z" fill="#DCE8C7"/><path d="M91 91c0-39 23-63 60-63 0 37-23 63-60 63Z" fill="#AFC98E"/><path d="M90 177c-26 0-43-5-56-14m56 14c26 0 43-5 56-14" stroke="#DCE8C7" stroke-width="4" stroke-linecap="round"/></svg>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand-block">
+        <a class="brand brand-footer" href="{{ url_for('home') }}">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M32.7 7.5C20.8 7.4 10.1 11.6 8.6 21.1c-.7 4.5 2.2 7.9 6.4 7.9 9.5 0 14.8-11.4 17.7-21.5Z" fill="currentColor"/><path d="M8.2 33c3.5-8.5 9.3-13.7 17.3-17.5" stroke="#F7F8F2" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+          <span class="brand-name">禾智云<span>SMART FARM</span></span>
+        </a>
+        <p>用智慧连接土地与未来。<br>让每一份耕耘，都更有数。</p>
+      </div>
+      <div class="footer-links">
+        <div><strong>产品</strong><a href="#solutions">鸡舍环境监测</a><a href="#solutions">作物产量预测</a><a href="#features">产品优势</a></div>
+        <div><strong>了解更多</strong><a href="#about">关于禾智云</a><a href="{{ url_for('register') }}">免费注册</a><a href="{{ url_for('login') }}">登录平台</a></div>
+        <div><strong>联系我们</strong><span>商务合作与产品咨询</span><a href="mailto:hello@hezhi.farm">hello@hezhi.farm</a><span>工作日 09:00 — 18:00</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 禾智云智慧农场 · 保留所有权利</span>
+      <span class="footer-note"><i></i> 让农业生长出更多可能</span>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</body>
+</html>

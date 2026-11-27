@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f2">
+  <title>农场工作台 · 禾智云</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="dashboard-page">
+  <header class="dashboard-header">
+    <a class="brand" href="{{ url_for('dashboard') }}" aria-label="禾智云工作台">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none">
+          <path d="M32.7 7.5C20.8 7.4 10.1 11.6 8.6 21.1c-.7 4.5 2.2 7.9 6.4 7.9 9.5 0 14.8-11.4 17.7-21.5Z" fill="currentColor"/>
+          <path d="M8.2 33c3.5-8.5 9.3-13.7 17.3-17.5" stroke="#F7F8F2" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand-name">禾智云<span>SMART FARM</span></span>
+    </a>
+    <div class="dashboard-account">
+      <span class="dashboard-user"><span class="user-avatar" aria-hidden="true">{{ user.id[:1] }}</span>{{ user.id }}</span>
+      <form method="post" action="{{ url_for('logout') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button class="logout-button" type="submit">退出登录</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="dashboard-main">
+    <div class="dashboard-heading">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> 农场管理平台</p>
+      <h1>你好，{{ user.id }}</h1>
+      <p>这里将汇总你的鸡舍环境与农作物生产信息。</p>
+    </div>
+    <section class="dashboard-empty" aria-labelledby="dashboard-empty-title">
+      <span class="dashboard-empty-icon" aria-hidden="true">✳</span>
+      <p class="auth-step">SMART FARM WORKSPACE</p>
+      <h2 id="dashboard-empty-title">主功能正在准备中</h2>
+      <p>账号认证已完成。鸡舍监测与作物产量预测功能将在这里逐步上线。</p>
+      <a class="button button-primary" href="{{ url_for('home') }}">返回产品首页 <span aria-hidden="true">→</span></a>
+    </section>
+  </main>
+</body>
+</html>

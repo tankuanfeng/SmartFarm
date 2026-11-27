@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f2">
+  <title>登录 · 禾智云</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <aside class="auth-aside">
+      <a class="brand brand-on-dark" href="{{ url_for('home') }}" aria-label="返回禾智云首页">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <path d="M32.7 7.5C20.8 7.4 10.1 11.6 8.6 21.1c-.7 4.5 2.2 7.9 6.4 7.9 9.5 0 14.8-11.4 17.7-21.5Z" fill="currentColor"/>
+            <path d="M8.2 33c3.5-8.5 9.3-13.7 17.3-17.5" stroke="#1D3528" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-name">禾智云<span>SMART FARM</span></span>
+      </a>
+      <div class="auth-aside-copy">
+        <span class="auth-kicker">WELCOME BACK</span>
+        <h1>农场的每一份<br>变化，都值得关注。</h1>
+        <p>登录禾智云，继续查看你的农场生产情况与数据趋势。</p>
+      </div>
+      <div class="auth-aside-art" aria-hidden="true">
+        <span class="auth-art-sun"></span>
+        <span class="auth-art-hill auth-art-hill-back"></span>
+        <span class="auth-art-hill auth-art-hill-front"></span>
+        <span class="auth-art-sprout">✳</span>
+      </div>
+    </aside>
+
+    <section class="auth-main">
+      <a class="auth-home-link" href="{{ url_for('home') }}">← 返回首页</a>
+      <div class="auth-form-wrap auth-login-wrap">
+        <div class="auth-heading">
+          <span class="auth-step">欢迎回到禾智云</span>
+          <h2>登录账号</h2>
+          <p>使用用户 ID 或邮箱登录你的农场。</p>
+        </div>
+
+        {% for message in get_flashed_messages() %}
+        <div class="auth-alert" role="status">{{ message }}</div>
+        {% endfor %}
+        {% if errors.get("general") %}
+        <div class="auth-alert" role="alert">{{ errors.general }}</div>
+        {% endif %}
+
+        <form class="auth-form" method="post" action="{{ url_for('login') }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+          <div class="form-field">
+            <label for="identifier">用户 ID / 邮箱</label>
+            <input id="identifier" name="identifier" type="text" value="{{ values.identifier }}" autocomplete="username" maxlength="254" required>
+          </div>
+
+          <div class="form-field">
+            <label for="password">密码</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" maxlength="64" required>
+          </div>
+
+          <button class="button button-primary auth-submit" type="submit">登录并进入农场 <span aria-hidden="true">→</span></button>
+        </form>
+
+        <p class="auth-switch">还没有账号？ <a href="{{ url_for('register') }}">立即注册</a></p>
+        <p class="auth-security-note">密码通过 POST 表单提交；本机 HTTP 开发环境请勿开放给其他网络访问。</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
